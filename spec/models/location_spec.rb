@@ -21,12 +21,12 @@ RSpec.describe Location, type: :model do
       expect(location).to be_invalid
     end
 
-    it "shold be error when name is more than 80" do
+    it "shold be error when name is rather than 80" do
       location = build(:location, name: 'a' * 81 )
       expect(location).to be_invalid
     end
 
-    it "shold be error when code is more than 10" do
+    it "shold be error when code is rather than 10" do
       location = build(:location, code: 'a' * 11 )
       expect(location).to be_invalid
     end
