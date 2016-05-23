@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:first_name) %>:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:middle_name) %>:</strong>
+  <%= @patient.middle_name %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:last_name) %>:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:medical_record_number) %>:</strong>
+  MR<%= @patient.medical_record_number %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:date_of_birth) %>:</strong>
+  <%= @patient.date_of_birth %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:gender) %>:</strong>
+  <%= I18n.t(@patient.gender, scope: [:activerecord, :attributes, :patient, :genders]) %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:status) %>:</strong>
+  <%= I18n.t(@patient.status, scope: [:activerecord, :attributes, :patient, :statuses]) %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:location) %>:</strong>
+  <%= @patient.location.name %>
+</p>
+
+<p>
+  <strong><%= Patient.human_attribute_name(:viewed_count) %>:</strong>
+  <%= @patient.viewed_count %>
+</p>
+
+<%= link_to t('edit'), edit_patient_path(@patient) %> |
+<%= link_to t('back'), patients_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= I18n.t("listing_patient") %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Patient.human_attribute_name "medical_record_number" %></th>
+      <th><%= Patient.human_attribute_name "full_name" %></th>
+      <th><%= Patient.human_attribute_name "age" %></th>
+      <th><%= Patient.human_attribute_name "gender" %></th>
+      <th><%= Patient.human_attribute_name "status" %></th>
+      <th><%= Patient.human_attribute_name "location" %></th>
+      <th><%= Patient.human_attribute_name "viewed_count" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td>MR<%= patient.medical_record_number %></td>
+        <td><%= patient.full_name %></td>
+        <td><%= patient.age %></td>
+        <td><%= t(patient.gender, scope: [:activerecord, :attributes, :patient, :genders]) %></td>
+        <td><%= t(patient.status, scope: [:activerecord, :attributes, :patient, :statuses]) %></td>
+        <td><%= link_to(patient.location.name, location_patients_path(patient.location)) %></td>
+        <td><%= patient.viewed_count %></td>
+
+        <td><%= link_to t("show"), patient %></td>
+        <td><%= link_to t('edit'), edit_patient_path(patient) %></td>
+        <td><%= link_to t('destroy'), patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t("new_patient"), new_patient_path %>

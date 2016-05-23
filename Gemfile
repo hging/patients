@@ -35,6 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Paranoia is a re-implementation of acts_as_paranoid for Rails 3/4/5
 gem "paranoia", "~> 2.0"
 
+gem 'rails-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

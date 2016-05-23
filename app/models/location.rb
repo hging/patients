@@ -14,4 +14,7 @@ class Location < ActiveRecord::Base
 
   validates :code, length: { maximum: 10 }
   validates :name, presence: true, length: { maximum: 80 }
+  def self.ready_for_select
+    Location.all.collect {|p| [ p.name, p.id ] }
+  end
 end

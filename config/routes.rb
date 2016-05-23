@@ -1,4 +1,28 @@
+# == Route Map
+#
+#            Prefix Verb   URI Pattern                                Controller#Action
+#              root GET    /                                          patients#index
+# location_patients GET    /locations/:location_id/patients(.:format) patients#index
+#          patients GET    /patients(.:format)                        patients#index
+#                   POST   /patients(.:format)                        patients#create
+#       new_patient GET    /patients/new(.:format)                    patients#new
+#      edit_patient GET    /patients/:id/edit(.:format)               patients#edit
+#           patient GET    /patients/:id(.:format)                    patients#show
+#                   PATCH  /patients/:id(.:format)                    patients#update
+#                   PUT    /patients/:id(.:format)                    patients#update
+#                   DELETE /patients/:id(.:format)                    patients#destroy
+#
+
 Rails.application.routes.draw do
+  scope "(:locale)", locale: /en|zh-CN/ do
+    root 'patients#index'
+    resources :locations, :only => [] do
+      resources :patients, :only => [:index]
+    end
+
+    resources :patients
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

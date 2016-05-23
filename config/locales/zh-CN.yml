@@ -1,0 +1,44 @@
+zh-CN:
+  activerecord:
+    models:
+      location: '地址'
+      patient: '患者'
+    attributes:
+      location:
+        code: '编码'
+        name: '名字'
+      patient:
+        medical_record_number: '医疗记录编号'
+        full_name: '全名'
+        first_name: '名字'
+        middle_name: '中名'
+        last_name: '姓'
+        date_of_birth: '生日'
+        age: '年龄'
+        gender: '性别'
+        genders:
+          not_available: '保密'
+          male: '男性'
+          female: '女性'
+        status: '状态'
+        statuses:
+          initial: '初始'
+          referred: '转诊'
+          treatment: '治疗'
+          closed: '治愈'
+        location: '地址'
+        viewed_count: '浏览总数'
+  patients:
+    destroy:
+      notice: '患者已被成功删除'
+    create:
+      notice: '患者已被成功创建'
+    update:
+      notice: '患者信息已经更新'
+  listing_patient: '患者列表'
+  new_patient: '新增患者'
+  edit_patient: '编辑患者'
+  edit: '编辑'
+  back: '后退'
+  destroy: '删除'
+  show: '详细信息'

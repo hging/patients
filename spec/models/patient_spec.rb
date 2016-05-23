@@ -54,6 +54,12 @@ RSpec.describe Patient, type: :model do
     expect(patient.medical_record_number).to eq ('%06d' % patient.id.to_s)
   end
 
+  it "viewed_count should be 0 when create" do
+    patient = create(:patient)
+    patient.reload
+    expect(patient.viewed_count).to eq 0
+  end
+
   it "should have scope onTreatment where state equal treatment" do
     expect(Patient.onTreatment.to_sql).to include("`status` = #{Patient.statuses[:treatment]}")
   end
