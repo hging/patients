@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: patients
+#
+#  id                    :integer          not null, primary key
+#  first_name            :string(255)
+#  middle_name           :string(255)
+#  last_name             :string(255)
+#  medical_record_number :string(255)
+#  date_of_birth         :date
+#  gender                :integer
+#  status                :integer
+#  location_id           :integer
+#  viewed_count          :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  deleted_at            :datetime
+#
+
 FactoryGirl.define do
   factory :patient do
     first_name "MyString"
